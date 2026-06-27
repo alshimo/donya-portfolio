@@ -308,13 +308,12 @@ const uiConceptProjects = [
     type: "UI concept project",
     role: "UI Designer",
     accent: "coral",
-    coverImage: "/mockups/legacy/dornatour1-Bvf75Z8Z.png",
+    coverImage: "/mockups/architecture/architecture-concept.png",
     tags: ["Architecture", "Gallery", "Desktop"],
     intro:
       "A visual concept direction for browsing places, hotels, and destination architecture with a gallery-led layout.",
     media: [
-      { src: "/mockups/legacy/dornatour1-Bvf75Z8Z.png", alt: "Architecture gallery concept", caption: "Gallery overview", device: "desktop", mockupImage: true },
-      { src: "/mockups/legacy/dornatour4-7BCGZfqq.png", alt: "Architecture destination concept", caption: "Destination grid", device: "desktop", mockupImage: true },
+      { src: "/mockups/architecture/architecture-concept.png", alt: "Architecture gallery concept", caption: "Architecture concept", device: "desktop", mockupImage: true },
     ],
   },
   {
@@ -543,36 +542,35 @@ function CurrentPortfolio() {
         <CaseStudySection
           id="case-studies"
           label="Project Case Studies"
-          title="Full product case studies."
-          description="Complete case studies open in a right-side overlay without navigating away from the portfolio."
+          title="Product case studies"
+          description="Evidence-led product stories covering cloud infrastructure, deployment, and travel booking."
           items={projectCaseStudies}
           onOpen={setOpenItemId}
         />
         <CaseStudySection
           id="ux-concepts"
           label="UX Concept Case Studies"
-          title="Research-led concept studies."
-          description="Conceptual UX work is separated from shipped product projects and opens in the same overlay system."
+          title="UX concept case studies"
+          description="Independent UX studies exploring decision support in commerce, food ordering, and travel search."
           items={uxConceptCaseStudies}
           onOpen={setOpenItemId}
         />
         <ProjectGridSection
           id="projects"
           label="Projects"
-          title="Product projects."
-          description="Project screens are shown inside device mockups, separate from the case-study PDFs."
+          title="Product projects"
+          description="Selected product interfaces for knowledge, cloud operations, infrastructure, and tour reservation."
           items={productProjects}
           onOpen={setOpenItemId}
         />
         <ProjectGridSection
           id="ui-concepts"
           label="UI Concept Projects"
-          title="Interface explorations."
-          description="UI concept work is grouped separately from project case studies and product projects."
+          title="UI concept projects"
+          description="Visual interface explorations across ecommerce, fashion, streaming, architecture, music, and mobility."
           items={uiConceptProjects}
           onOpen={setOpenItemId}
         />
-        <ProcessSection />
         <AboutSection />
         <ContactSection />
       </main>
@@ -747,7 +745,7 @@ function ExperienceSection() {
     <section id="experience" className="experience-section section-shell" aria-labelledby="experience-title">
       <div className="section-heading reveal">
         <p className="section-label">Work Experience</p>
-        <h2 id="experience-title">Product design across cloud and responsive digital products.</h2>
+        <h2 id="experience-title">Product design experience</h2>
       </div>
       <div className="experience-grid">
         {experience.map((item) => (
@@ -774,7 +772,7 @@ function EducationCoursesSection() {
     <section id="education" className="education-section section-shell" aria-labelledby="education-title">
       <div className="section-heading reveal">
         <p className="section-label">Education & Courses</p>
-        <h2 id="education-title">Formal education and completed product courses.</h2>
+        <h2 id="education-title">Education and completed courses</h2>
       </div>
 
       <div className="education-layout">
@@ -831,9 +829,7 @@ function CaseStudySection({ id, label, title, description, items, onOpen }) {
               <img src={item.coverImage} alt={`${item.title} cover`} />
             </div>
             <div className="case-study-body">
-              <span>{item.type}</span>
               <h3>{item.title}</h3>
-              <p>{item.intro}</p>
               <ArrowRight size={18} aria-hidden="true" />
             </div>
           </button>
@@ -919,12 +915,14 @@ function AboutSection() {
     <section id="about" className="about-section section-shell" aria-labelledby="about-title">
       <div className="about-grid">
         <div className="portrait-panel reveal">
-          <WomanLineFigure compact />
+          <div className="portrait-photo-frame">
+            <img src="/images/donya-mehrzad-photo.png" alt="Donya Mehrzad" />
+          </div>
         </div>
 
         <div className="about-copy reveal">
           <p className="section-label">About</p>
-          <h2 id="about-title">Design with research, systems, and human clarity.</h2>
+          <h2 id="about-title">Research, systems, and clarity</h2>
           <p>
             I am a creative Product Designer with a background in Industrial
             Design. I design user-centered digital products and enjoy breaking
@@ -956,7 +954,7 @@ function ContactSection() {
       <div className="contact-inner reveal">
         <div>
           <p className="section-label">Contact</p>
-          <h2 id="contact-title">Let's build something meaningful.</h2>
+          <h2 id="contact-title">Build something meaningful</h2>
           <p>
             I am open to product design roles, collaborations, and projects that
             need clarity around complex workflows.
@@ -1035,61 +1033,59 @@ function DetailOverlay({ item, onClose }) {
   const isCaseStudy = item.detailType === "case-study";
 
   return (
-    <div className="modal-overlay drawer-overlay" role="presentation" onMouseDown={onClose}>
+    <div
+      className={`modal-overlay ${isCaseStudy ? "case-visual-overlay" : "device-modal-overlay"}`}
+      role="presentation"
+      onMouseDown={onClose}
+    >
       <section
-        className={`detail-drawer ${item.accent}`}
+        className={isCaseStudy ? "case-visual-modal" : `project-modal device-modal ${item.accent}`}
         role="dialog"
         aria-modal="true"
-        aria-labelledby="detail-drawer-title"
+        aria-labelledby={isCaseStudy ? undefined : "detail-drawer-title"}
+        aria-label={isCaseStudy ? item.title : undefined}
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <header className="modal-header drawer-header">
-          <div>
-            <span>{isCaseStudy ? "Case Study" : item.type}</span>
-            <h2 id="detail-drawer-title">{item.title}</h2>
-          </div>
-          <button className="icon-button" type="button" onClick={onClose} aria-label="Close detail overlay">
-            <X size={20} aria-hidden="true" />
-          </button>
-        </header>
-
         {isCaseStudy ? (
-          <CaseStudyDrawerContent item={item} />
+          <CaseStudyVisualContent item={item} onClose={onClose} />
         ) : (
-          <ProjectDrawerContent
-            item={item}
-            mediaIndex={mediaIndex}
-            setMediaIndex={setMediaIndex}
-          />
+          <>
+            <header className="modal-header device-modal-header">
+              <div>
+                <span>{item.type}</span>
+                <h2 id="detail-drawer-title">{item.title}</h2>
+              </div>
+              <button className="icon-button" type="button" onClick={onClose} aria-label="Close detail overlay">
+                <X size={20} aria-hidden="true" />
+              </button>
+            </header>
+            <TagList items={item.tags} />
+            <ProjectModalContent
+              item={item}
+              mediaIndex={mediaIndex}
+              setMediaIndex={setMediaIndex}
+            />
+          </>
         )}
       </section>
     </div>
   );
 }
 
-function CaseStudyDrawerContent({ item }) {
+function CaseStudyVisualContent({ item, onClose }) {
   return (
-    <div className="drawer-scroll">
-      <div className="drawer-summary">
-        <div className="meta-line">
-          <span>{item.role}</span>
-          <span>{item.type}</span>
-        </div>
-        <p>{item.intro}</p>
-        <TagList items={item.tags} />
-        <DetailList title="Problem" items={[item.problem]} />
-        <DetailList title="Design decisions" items={item.moves} />
-        <DetailList title="Outcome signals" items={item.impact} />
+    <>
+      <button className="icon-button case-close-button" type="button" onClick={onClose} aria-label="Close detail overlay">
+        <X size={20} aria-hidden="true" />
+      </button>
+      <div className="case-visual-image-shell">
+        <img src={item.coverImage} alt={`${item.title} visual`} />
       </div>
-
-      <div className="case-document">
-        <iframe src={item.pdfPath} title={`${item.title} complete case study`} />
-      </div>
-    </div>
+    </>
   );
 }
 
-function ProjectDrawerContent({ item, mediaIndex, setMediaIndex }) {
+function ProjectModalContent({ item, mediaIndex, setMediaIndex }) {
   const currentMedia = item.media[mediaIndex] ?? item.media[0];
   const hasMultipleMedia = item.media.length > 1;
 
@@ -1104,34 +1100,27 @@ function ProjectDrawerContent({ item, mediaIndex, setMediaIndex }) {
   };
 
   return (
-    <div className="drawer-scroll project-drawer-scroll">
-      <div className="drawer-summary">
-        <div className="meta-line">
-          <span>{item.role}</span>
-          <span>{item.type}</span>
-        </div>
-        <p>{item.intro}</p>
-        <TagList items={item.tags} />
-      </div>
-
-      <div className="device-gallery">
-        <DeviceFrame media={currentMedia} title={item.title} />
-        <div className="modal-media-caption">
-          <span>{currentMedia.caption}</span>
-          <span>
-            {mediaIndex + 1} / {item.media.length}
-          </span>
-        </div>
-        {hasMultipleMedia && (
-          <div className="modal-media-controls">
-            <button className="icon-button" type="button" onClick={showPrevious} aria-label="Previous screen">
-              <ChevronLeft size={20} aria-hidden="true" />
-            </button>
-            <button className="icon-button" type="button" onClick={showNext} aria-label="Next screen">
-              <ChevronRight size={20} aria-hidden="true" />
-            </button>
+    <>
+      <div className="device-modal-body">
+        <div className="device-gallery centered-device-gallery">
+          <DeviceFrame media={currentMedia} title={item.title} />
+          <div className="modal-media-caption">
+            <span>{currentMedia.caption}</span>
+            <span>
+              {mediaIndex + 1} / {item.media.length}
+            </span>
           </div>
-        )}
+          {hasMultipleMedia && (
+            <div className="modal-media-controls">
+              <button className="icon-button" type="button" onClick={showPrevious} aria-label="Previous screen">
+                <ChevronLeft size={20} aria-hidden="true" />
+              </button>
+              <button className="icon-button" type="button" onClick={showNext} aria-label="Next screen">
+                <ChevronRight size={20} aria-hidden="true" />
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
       {hasMultipleMedia && (
@@ -1149,19 +1138,11 @@ function ProjectDrawerContent({ item, mediaIndex, setMediaIndex }) {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }
 
 function DeviceFrame({ media, title }) {
-  if (media.mockupImage) {
-    return (
-      <div className={`device-stage ${media.device}`}>
-        <img className="device-mockup-image" src={media.src} alt={media.alt} />
-      </div>
-    );
-  }
-
   if (media.device === "mobile") {
     return (
       <div className="device-stage mobile">
@@ -1177,11 +1158,16 @@ function DeviceFrame({ media, title }) {
 
   return (
     <div className="device-stage desktop">
-      <div className="laptop-device" aria-label={`${title} desktop mockup`}>
-        <div className="laptop-screen">
+      <div className="browser-device" aria-label={`${title} browser mockup`}>
+        <div className="browser-toolbar" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+          <i>{title}</i>
+        </div>
+        <div className="browser-screen">
           <img src={media.src} alt={media.alt} />
         </div>
-        <div className="laptop-base" />
       </div>
     </div>
   );
@@ -1193,19 +1179,6 @@ function TagList({ items }) {
       {items.map((item) => (
         <span key={item}>{item}</span>
       ))}
-    </div>
-  );
-}
-
-function DetailList({ title, items }) {
-  return (
-    <div className="detail-list">
-      <h4>{title}</h4>
-      <ul>
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
     </div>
   );
 }
