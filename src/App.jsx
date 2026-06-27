@@ -4,7 +4,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Download,
-  Expand,
   ExternalLink,
   Linkedin,
   ListChecks,
@@ -16,200 +15,124 @@ import {
   X,
 } from "lucide-react";
 
-const caseStudies = [
+const projectCaseStudies = [
   {
-    id: "abriment-server-flow",
-    title: "Abriment Server Creation Flow",
+    id: "cloud-server-creation-flow",
+    detailType: "case-study",
+    title: "Cloud Server Creation Flow",
     type: "B2B cloud infrastructure",
     role: "Product Designer",
     accent: "cyan",
-    imageTone: "light",
-    previewFrame: "landscape",
+    coverImage: "/cases/cloud-server.jpg",
+    pdfPath: "/docs/case-studies/cloud-server-creation-flow.pdf",
     tags: ["Server creation", "Quota clarity", "Cloud IA"],
     intro:
-      "A redesigned server creation journey where configuration choices, quota limits, and resource impact stay visible from setup to review.",
+      "A redesigned cloud server creation journey focused on clearer infrastructure choices, quota visibility, and confident provisioning.",
     problem:
-      "Users faced quota confusion, unclear OS versus snapshot choices, hidden advanced settings, forced firewall exits, and weak visibility into resource impact.",
+      "The original flow had grown fragmented: quota limits, OS versus snapshot choices, firewall setup, and review states were unclear at high-risk moments.",
     moves: [
-      "Persistent review and resource summary across the creation flow.",
-      "Clearer separation between server type, image, network, and security decisions.",
-      "Inline checks that keep users from discovering quota or configuration issues too late.",
+      "Mapped support tickets and frequent failure points back to specific UX patterns.",
+      "Separated server type, image, network, security, resources, and review into clearer steps.",
+      "Kept quota and configuration impact visible before users committed to provisioning.",
     ],
     impact: [
-      "No participant needed to restart because of quota confusion.",
-      "Reduced backward navigation during moderated task completion.",
-      "Stronger confidence before provisioning critical infrastructure.",
-    ],
-    media: [
-      {
-        src: "/mockups/abriment/server-final.jpg",
-        alt: "Abriment final server creation review screen",
-        caption: "Final review flow",
-      },
-      {
-        src: "/mockups/abriment/server-information.png",
-        alt: "Abriment server information form",
-        caption: "Information step",
-      },
-      {
-        src: "/mockups/abriment/server-settings.jpg",
-        alt: "Abriment server settings step",
-        caption: "Settings step",
-      },
-      {
-        src: "/mockups/abriment/server-kind.jpg",
-        alt: "Abriment server kind selection",
-        caption: "Server type selection",
-      },
+      "Reduced confusion around quota and firewall decisions.",
+      "Improved confidence before creating infrastructure resources.",
+      "Turned a high-impact technical action into a more guided setup flow.",
     ],
   },
   {
-    id: "deployment-wizard",
+    id: "self-service-deployment-wizard",
+    detailType: "case-study",
     title: "Self-Service Deployment Wizard",
     type: "Kubernetes deployment system",
-    role: "End-to-end UX",
+    role: "Product Designer",
     accent: "lime",
-    imageTone: "light",
-    previewFrame: "landscape",
+    coverImage: "/cases/deployment-wizard.jpg",
+    pdfPath: "/docs/case-studies/self-service-deployment-wizard.pdf",
     tags: ["Wizard IA", "Deployment", "Enterprise cloud"],
     intro:
       "A guided deployment wizard that lets enterprise clients install cloud services without on-site DevOps dependency.",
     problem:
       "Manual deployment created operational cost, delivery delays, configuration drift, and heavy reliance on internal technical teams.",
     moves: [
-      "Card-based entry for install-new versus connect-existing paths.",
-      "Layered tabs for infrastructure, network, runtime, registry, and plugins.",
-      "Multi-product deployment states for completed, in-progress, and pending work.",
+      "Designed install-new and connect-existing paths for Kubernetes environments.",
+      "Structured networking, runtime, registry, plugins, and product selection into a guided wizard.",
+      "Made multi-product progress and configuration states visible throughout setup.",
     ],
     impact: [
-      "85% faster deployments from days to under 30 minutes.",
-      "60% fewer support tickets related to configuration errors.",
-      "A scalable flow for Kubernetes, AWS, and GCP environments.",
-    ],
-    media: [
-      {
-        src: "/cases/deployment-wizard.jpg",
-        alt: "Self-service deployment wizard preview",
-        caption: "Wizard configuration",
-      },
-      {
-        src: "/mockups/abriment/dashboard-overview.jpg",
-        alt: "Abriment cloud dashboard overview",
-        caption: "Cloud service context",
-      },
-      {
-        src: "/mockups/abriment/dashboard-table.png",
-        alt: "Abriment service table screen",
-        caption: "Service management table",
-      },
+      "Faster enterprise onboarding and reduced deployment dependency.",
+      "Fewer configuration errors during setup.",
+      "A scalable pattern for Kubernetes, AWS, and GCP deployment paths.",
     ],
   },
   {
-    id: "mohaymen-cloud-dashboard",
-    title: "Mohaymen Cloud Database Dashboard",
-    type: "Cloud database management",
-    role: "Product UX/UI",
-    accent: "cyan",
-    imageTone: "light",
-    previewFrame: "landscape",
-    tags: ["Database ops", "Persian UI", "Dashboard"],
+    id: "dorna-tour-booking",
+    detailType: "case-study",
+    title: "Dorna Tour Booking",
+    type: "Travel platform",
+    role: "UX/UI Designer",
+    accent: "coral",
+    coverImage: "/cases/dorna.jpg",
+    pdfPath: "/docs/case-studies/dorna-tour-booking.pdf",
+    tags: ["Travel", "Booking", "Transparency"],
     intro:
-      "A dashboard concept for browsing, comparing, and operating cloud database services with dense technical data kept readable.",
+      "A tour reservation platform designed to make searching, comparing, and booking travel packages more transparent.",
     problem:
-      "Infrastructure tables can quickly become hard to scan when status, ownership, resource usage, and actions compete for the same row.",
+      "Travelers need enough itinerary, hotel, passenger, and payment context to book confidently without slowing the reservation path.",
     moves: [
-      "Structured table density with high-contrast status and action hierarchy.",
-      "Consistent sidebar and tab navigation for repeated operations.",
-      "Detail views that preserve context instead of forcing users into disconnected pages.",
+      "Mapped tour search, comparison, reservation, and payment flows.",
+      "Organized travel information around confidence-building decision points.",
+      "Created clearer routes for choosing tours and reviewing booking details.",
     ],
     impact: [
-      "Improved scanability for database fleet management.",
-      "Clearer operational priority through status and ownership grouping.",
-      "A reusable dashboard pattern for technical cloud products.",
-    ],
-    media: [
-      {
-        src: "/mockups/mohaymen/dashboard.jpg",
-        alt: "Mohaymen cloud dashboard overview",
-        caption: "Dashboard overview",
-      },
-      {
-        src: "/mockups/mohaymen/database.png",
-        alt: "Mohaymen database screen",
-        caption: "Database screen",
-      },
-      {
-        src: "/mockups/mohaymen/table.png",
-        alt: "Mohaymen dense table screen",
-        caption: "Table view",
-      },
-      {
-        src: "/mockups/mohaymen/detail.png",
-        alt: "Mohaymen detail screen",
-        caption: "Detail state",
-      },
-    ],
-  },
-  {
-    id: "kherad-khan",
-    title: "KheradKhan Reading Platform",
-    type: "Knowledge management",
-    role: "Product Designer",
-    accent: "lime",
-    imageTone: "light",
-    previewFrame: "portrait",
-    tags: ["Reading UX", "Library", "Highlights"],
-    intro:
-      "A reading platform for saving, organizing, writing, and reviewing book and article insights across a calm Persian interface.",
-    problem:
-      "Readers needed a coherent place to collect highlights, revisit saved ideas, and continue writing without losing the original reading context.",
-    moves: [
-      "Separated discovery, library, favorite highlights, and writing modes.",
-      "Used editorial layouts that keep long-form content calm and legible.",
-      "Built clear entry points for continuing unfinished writing and reviewing saved notes.",
-    ],
-    impact: [
-      "A clearer mental model for reading, saving, and writing workflows.",
-      "More visible routes back into saved knowledge.",
-      "A product direction with room for both focused reading and knowledge capture.",
-    ],
-    media: [
-      {
-        src: "/mockups/kherad-khan/library.jpg",
-        alt: "KheradKhan library page",
-        caption: "Library",
-      },
-      {
-        src: "/mockups/kherad-khan/landing.jpg",
-        alt: "KheradKhan landing page",
-        caption: "Landing",
-      },
-      {
-        src: "/mockups/kherad-khan/writer.jpg",
-        alt: "KheradKhan writing interface",
-        caption: "Writer",
-      },
-      {
-        src: "/mockups/kherad-khan/favorite-highlight.jpg",
-        alt: "KheradKhan favorite highlights page",
-        caption: "Favorite highlights",
-      },
+      "A more structured tour discovery and reservation experience.",
+      "Clearer evaluation criteria before booking.",
+      "Better support for users planning travel online.",
     ],
   },
 ];
 
-const supportingProjects = [
+const uxConceptCaseStudies = [
   {
-    id: "snappfood-quick-choice",
+    id: "digikala-decision-fatigue",
+    detailType: "case-study",
+    title: "Digikala Decision Fatigue",
+    type: "Ecommerce product-list UX",
+    role: "UX Research + Product Design",
+    accent: "coral",
+    coverImage: "/cases/digikala.jpg",
+    pdfPath: "/docs/case-studies/digikala-decision-fatigue.pdf",
+    tags: ["Ecommerce", "Comparison", "Decision support"],
+    intro:
+      "An independent UX case study focused on helping shoppers compare similar products with less hesitation.",
+    problem:
+      "Dense category pages made similar options difficult to compare, increasing decision fatigue and reducing confidence before add-to-cart.",
+    moves: [
+      "Observed product-list browsing behavior and clarified repeated points of uncertainty.",
+      "Restructured comparison cues around the shopper's actual decision criteria.",
+      "Reduced repeated scanning by surfacing meaningful product differentiators.",
+    ],
+    impact: [
+      "A clearer decision-support model for dense ecommerce categories.",
+      "Lower cognitive load while comparing similar products.",
+      "A stronger hypothesis for improving product-list conversion.",
+    ],
+  },
+  {
+    id: "snappfood-smart-quick-choice",
+    detailType: "case-study",
     title: "Snappfood Smart Quick Choice",
     type: "Consumer UX research",
     role: "UX Research + Product Design",
-    accent: "coral",
+    accent: "lime",
+    coverImage: "/cases/snappfood.jpg",
+    pdfPath: "/docs/case-studies/snappfood-smart-quick-choice.pdf",
     tags: ["Food ordering", "Decision fatigue", "Research"],
     intro:
       "A conceptual system for reducing decision fatigue when hungry users need a fast, confident food choice.",
     problem:
-      "Users spent too long scrolling, moved between restaurants repeatedly, hesitated between options, and sometimes left without ordering.",
+      "Users spent too long scrolling, moved repeatedly between restaurants, hesitated between options, and sometimes left without ordering.",
     moves: [
       "Observed real ordering behavior and interviewed users aged 20 to 35.",
       "Separated variety problems from decision-structure problems.",
@@ -220,20 +143,16 @@ const supportingProjects = [
       "Lower cognitive load at the point of ordering.",
       "A clearer product hypothesis for conversion improvement.",
     ],
-    media: [
-      {
-        src: "/cases/snappfood.jpg",
-        alt: "Snappfood quick choice case study preview",
-        caption: "Quick choice concept",
-      },
-    ],
   },
   {
-    id: "alibaba-airport",
+    id: "alibaba-airport-selection",
+    detailType: "case-study",
     title: "Alibaba Airport Selection",
     type: "Travel booking UX",
     role: "Product Designer",
     accent: "cyan",
+    coverImage: "/cases/alibaba.jpg",
+    pdfPath: "/docs/case-studies/alibaba-airport-selection.pdf",
     tags: ["Travel booking", "Choice architecture", "Search"],
     intro:
       "A conceptual redesign of airport selection in flight search, focused on reducing cognitive friction in a booking funnel.",
@@ -249,149 +168,244 @@ const supportingProjects = [
       "Stronger confidence before search submission.",
       "A more conversion-aware travel search pattern.",
     ],
-    media: [
-      {
-        src: "/cases/alibaba.jpg",
-        alt: "Alibaba airport selection case study preview",
-        caption: "Airport selection flow",
-      },
-    ],
   },
+];
+
+const productProjects = [
   {
-    id: "digikala-decision-fatigue",
-    title: "Digikala Decision Fatigue",
-    type: "Ecommerce product-list UX",
-    role: "UX Research + Product Design",
-    accent: "coral",
-    tags: ["Ecommerce", "Comparison", "Decision support"],
-    intro:
-      "A product-listing exploration for helping shoppers compare similar products without losing momentum.",
-    problem:
-      "Dense category pages made similar options difficult to compare, increasing hesitation before product detail visits.",
-    moves: [
-      "Clarified comparison attributes around the shopper's actual decision criteria.",
-      "Reduced repeated scanning by surfacing meaningful differentiators.",
-      "Structured a clearer path from listing uncertainty to confident shortlist.",
-    ],
-    impact: [
-      "A stronger decision-support model for dense ecommerce categories.",
-      "Lower cognitive load while comparing similar products.",
-      "Clearer opportunities for listing-page experimentation.",
-    ],
-    media: [
-      {
-        src: "/cases/digikala.jpg",
-        alt: "Digikala decision fatigue case study preview",
-        caption: "Product-list decision support",
-      },
-    ],
-  },
-  {
-    id: "dorna-tour-booking",
-    title: "Dorna Tour Booking",
-    type: "Travel platform",
-    role: "UX/UI Designer",
+    id: "kheradkhan-reading-platform",
+    detailType: "project",
+    title: "KheradKhan Reading Platform",
+    type: "Knowledge management",
+    role: "Product Designer",
     accent: "lime",
-    tags: ["Travel", "Booking", "Transparency"],
+    coverImage: "/mockups/legacy/ketab4-CFZrOshi.png",
+    tags: ["Reading UX", "Library", "Highlights"],
     intro:
-      "A transparent tour discovery and booking experience with research-backed flow design.",
-    problem:
-      "Travelers need enough trip context to feel safe booking while still moving quickly through discovery.",
-    moves: [
-      "Organized trip details around confidence-building decision points.",
-      "Clarified itinerary, booking steps, and support expectations.",
-      "Reduced ambiguity between browsing and committing to a tour.",
-    ],
-    impact: [
-      "A clearer tour evaluation path.",
-      "Stronger trust signals before booking.",
-      "A more structured travel product experience.",
-    ],
+      "A reading platform for saving, organizing, writing, and reviewing book and article insights across a calm Persian interface.",
     media: [
-      {
-        src: "/cases/dorna.jpg",
-        alt: "Dorna tour booking case study preview",
-        caption: "Tour booking flow",
-      },
+      { src: "/mockups/legacy/ketab1-DDS0nHik.png", alt: "KheradKhan table view", caption: "Saved notes table", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/ketab2-DkwfQA7P.png", alt: "KheradKhan reading view", caption: "Reading detail", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/ketab3-DFtr92Gl.png", alt: "KheradKhan profile and library view", caption: "Reader profile", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/ketab4-CFZrOshi.png", alt: "KheradKhan library grid", caption: "Library grid", device: "desktop", mockupImage: true },
+    ],
+  },
+  {
+    id: "mohaymen-cloud-database-dashboard",
+    detailType: "project",
+    title: "Mohaymen Cloud Database Dashboard",
+    type: "Cloud database management",
+    role: "Product UX/UI",
+    accent: "cyan",
+    coverImage: "/mockups/legacy/database1-Cd7GAP96.png",
+    tags: ["Database ops", "Persian UI", "Dashboard"],
+    intro:
+      "A dashboard for browsing, comparing, and operating cloud database services with dense technical data kept readable.",
+    media: [
+      { src: "/mockups/legacy/database1-Cd7GAP96.png", alt: "Mohaymen database table", caption: "Database table", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/database2-DMm-BbwZ.png", alt: "Mohaymen database creation", caption: "Creation flow", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/database3-mVGaPKRP.png", alt: "Mohaymen configuration form", caption: "Configuration", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/database4-BxnO6_8M.png", alt: "Mohaymen settings state", caption: "Settings state", device: "desktop", mockupImage: true },
+    ],
+  },
+  {
+    id: "abriment-server-creation-flow-project",
+    detailType: "project",
+    title: "Abriment Server Creation Flow",
+    type: "B2B cloud infrastructure",
+    role: "Product Designer",
+    accent: "cyan",
+    coverImage: "/mockups/abriment/server-final.jpg",
+    tags: ["Server creation", "Quota clarity", "Cloud IA"],
+    intro:
+      "The implemented server creation screens, separated from the full cloud-server case study.",
+    media: [
+      { src: "/mockups/abriment/server-final.jpg", alt: "Abriment final review screen", caption: "Final review", device: "desktop" },
+      { src: "/mockups/abriment/server-information.png", alt: "Abriment information step", caption: "Information step", device: "desktop" },
+      { src: "/mockups/abriment/server-settings.jpg", alt: "Abriment settings step", caption: "Settings step", device: "desktop" },
+      { src: "/mockups/abriment/server-kind.jpg", alt: "Abriment server type selection", caption: "Server type", device: "desktop" },
+    ],
+  },
+  {
+    id: "tour-reservation",
+    detailType: "project",
+    title: "Tour Reservation",
+    type: "Travel booking product",
+    role: "UX/UI Designer",
+    accent: "coral",
+    coverImage: "/mockups/legacy/dornatour1-Bvf75Z8Z.png",
+    tags: ["Reservation", "Travel", "Dashboard"],
+    intro:
+      "Tour reservation screens for discovering packages, reviewing travel information, and supporting booking workflows.",
+    media: [
+      { src: "/mockups/legacy/dornatour1-Bvf75Z8Z.png", alt: "Tour reservation landing screen", caption: "Tour discovery", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/dornatour2-CnaZ3c8H.png", alt: "Tour reservation listing screen", caption: "Tour listings", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/dornatour3-C4R6d8kw.png", alt: "Tour reservation management screen", caption: "Reservation table", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/dornatour4-7BCGZfqq.png", alt: "Tour reservation destination screen", caption: "Destination detail", device: "desktop", mockupImage: true },
     ],
   },
 ];
 
-const conceptProjects = [
+const uiConceptProjects = [
   {
-    id: "car-rental-concept",
-    title: "Car Rental Mobile Concept",
-    type: "Concept Lab",
-    role: "Mobile UX/UI concept",
-    accent: "cyan",
-    presentation: "mobile-concept",
-    tags: ["Mobility", "Booking", "Mobile UI"],
+    id: "sweet-craft",
+    detailType: "project",
+    title: "Sweet Craft",
+    type: "UI concept project",
+    role: "UI Designer",
+    accent: "coral",
+    coverImage: "/mockups/legacy/mockup1-Bp4E5SCU.png",
+    tags: ["Recipe website", "Visual UI", "Desktop"],
     intro:
-      "A mobile exploration for browsing vehicle details, location context, specs, and booking confidence in a compact flow.",
-    problem:
-      "Vehicle rental decisions depend on price, location, specs, and availability, but those signals often compete in small mobile layouts.",
-    moves: [
-      "Used a highly visual vehicle detail screen with map and specification context.",
-      "Kept booking actions visually persistent without covering decision information.",
-      "Balanced premium product imagery with practical scanable metadata.",
-    ],
-    impact: [
-      "A sharper first impression for high-consideration vehicle selection.",
-      "A compact mobile pattern for location-aware booking.",
-      "A flexible concept direction for rental and mobility products.",
-    ],
+      "A warm recipe and dessert website concept with an editorial desktop layout.",
     media: [
-      {
-        src: "/mockups/concepts/car-rental/car-rental-1.jpg",
-        alt: "Car rental mobile concept screen one",
-        caption: "Vehicle detail",
-      },
-      {
-        src: "/mockups/concepts/car-rental/car-rental-2.jpg",
-        alt: "Car rental mobile concept screen two",
-        caption: "Booking context",
-      },
-      {
-        src: "/mockups/concepts/car-rental/car-rental-3.jpg",
-        alt: "Car rental mobile concept screen three",
-        caption: "Availability view",
-      },
+      { src: "/mockups/legacy/mockup1-Bp4E5SCU.png", alt: "Sweet Craft homepage", caption: "Homepage", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockup2-CBnqxnia.png", alt: "Sweet Craft recipe grid", caption: "Recipe grid", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockup3-B_gVEoz7.png", alt: "Sweet Craft party section", caption: "Feature section", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockup4-BmtuDWe4.png", alt: "Sweet Craft story section", caption: "Story section", device: "desktop", mockupImage: true },
     ],
   },
   {
-    id: "music-player-concept",
+    id: "doraa",
+    detailType: "project",
+    title: "Doraa",
+    type: "UI concept project",
+    role: "UI Designer",
+    accent: "lime",
+    coverImage: "/mockups/legacy/Dora-C8HscyOt.png",
+    tags: ["Fashion", "Editorial UI", "Desktop"],
+    intro:
+      "A luxury fashion commerce concept with calm product browsing and refined visual hierarchy.",
+    media: [
+      { src: "/mockups/legacy/mockupdora1-jBrl2uKp.png", alt: "Doraa homepage", caption: "Homepage", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockupdora2-B0ho9YBf.png", alt: "Doraa editorial collection", caption: "Collection story", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockupdora3-Dy5p_gZo.png", alt: "Doraa product listing", caption: "Product listing", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockupdora4-DV2_OUn0.png", alt: "Doraa category page", caption: "Category page", device: "desktop", mockupImage: true },
+    ],
+  },
+  {
+    id: "movie",
+    detailType: "project",
+    title: "Movie",
+    type: "UI concept project",
+    role: "UI Designer",
+    accent: "cyan",
+    coverImage: "/mockups/legacy/Dide-jwL_4moJ.png",
+    tags: ["Streaming", "Movie discovery", "Desktop"],
+    intro:
+      "A cinematic movie platform concept for discovery, detail browsing, and watchlist exploration.",
+    media: [
+      { src: "/mockups/legacy/mockupdesktop1-CwU1q0vW.png", alt: "Movie concept hero screen", caption: "Hero screen", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockupdesktop2-B_pFDGh0.png", alt: "Movie concept listing screen", caption: "Movie listing", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockupdesktop3-DbKMm06O.png", alt: "Movie concept browsing screen", caption: "Browse state", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/mockupdesktop4-Co3lYFid.png", alt: "Movie concept detail screen", caption: "Detail page", device: "desktop", mockupImage: true },
+    ],
+  },
+  {
+    id: "architecture",
+    detailType: "project",
+    title: "Architecture",
+    type: "UI concept project",
+    role: "UI Designer",
+    accent: "coral",
+    coverImage: "/mockups/legacy/dornatour1-Bvf75Z8Z.png",
+    tags: ["Architecture", "Gallery", "Desktop"],
+    intro:
+      "A visual concept direction for browsing places, hotels, and destination architecture with a gallery-led layout.",
+    media: [
+      { src: "/mockups/legacy/dornatour1-Bvf75Z8Z.png", alt: "Architecture gallery concept", caption: "Gallery overview", device: "desktop", mockupImage: true },
+      { src: "/mockups/legacy/dornatour4-7BCGZfqq.png", alt: "Architecture destination concept", caption: "Destination grid", device: "desktop", mockupImage: true },
+    ],
+  },
+  {
+    id: "music-discovery-mobile-concept",
+    detailType: "project",
     title: "Music Discovery Mobile Concept",
-    type: "Concept Lab",
+    type: "UI concept project",
     role: "Mobile UX/UI concept",
     accent: "lime",
-    presentation: "mobile-concept",
+    coverImage: "/mockups/concepts/music/music.jpg",
     tags: ["Music", "Player", "Discovery"],
     intro:
       "A mobile music interface concept focused on immersive browsing, playback hierarchy, and track-level clarity.",
-    problem:
-      "Music interfaces need to make playback feel immersive while keeping navigation, queue, and track state immediately understandable.",
-    moves: [
-      "Designed a dark immersive browsing surface with strong album-art hierarchy.",
-      "Separated discovery and track playback states with consistent controls.",
-      "Used high-contrast text and compact actions for repeat mobile use.",
-    ],
-    impact: [
-      "A distinctive mobile visual direction for media apps.",
-      "Clearer track-level control hierarchy.",
-      "A concept pattern that can scale into playlist and queue flows.",
-    ],
     media: [
-      {
-        src: "/mockups/concepts/music/music.jpg",
-        alt: "Music discovery mobile concept",
-        caption: "Discovery",
-      },
-      {
-        src: "/mockups/concepts/music/track.jpg",
-        alt: "Music track playback mobile concept",
-        caption: "Track playback",
-      },
+      { src: "/mockups/concepts/music/music.jpg", alt: "Music discovery mobile screen", caption: "Discovery", device: "mobile" },
+      { src: "/mockups/concepts/music/track.jpg", alt: "Music track playback screen", caption: "Track playback", device: "mobile" },
     ],
+  },
+  {
+    id: "car-rental-mobile-concept",
+    detailType: "project",
+    title: "Car Rental Mobile Concept",
+    type: "UI concept project",
+    role: "Mobile UX/UI concept",
+    accent: "cyan",
+    coverImage: "/mockups/concepts/car-rental/car-rental-1.jpg",
+    tags: ["Mobility", "Booking", "Mobile UI"],
+    intro:
+      "A mobile exploration for browsing vehicle details, location context, specs, and booking confidence in a compact flow.",
+    media: [
+      { src: "/mockups/concepts/car-rental/car-rental-1.jpg", alt: "Car rental mobile screen one", caption: "Vehicle detail", device: "mobile" },
+      { src: "/mockups/concepts/car-rental/car-rental-2.jpg", alt: "Car rental mobile screen two", caption: "Booking context", device: "mobile" },
+      { src: "/mockups/concepts/car-rental/car-rental-3.jpg", alt: "Car rental mobile screen three", caption: "Availability", device: "mobile" },
+    ],
+  },
+];
+
+const experience = [
+  {
+    company: "Mohaymen",
+    role: "Product Designer",
+    period: "June 2025 - Present",
+    points: [
+      "Redesigned the cloud service creation flow to simplify user journeys, reduce unnecessary steps, and accelerate product setup.",
+      "Designed and documented a Shadcn UI-inspired design system to standardize UI components.",
+      "Designed self-service deployment, marketplace, and installation experiences for cloud services.",
+      "Implemented and launched product work using a low-code platform as part of the design role.",
+    ],
+  },
+  {
+    company: "Makeen Ideal Media",
+    role: "UX/UI Designer",
+    period: "Feb 2024 - June 2025",
+    points: [
+      "Designed responsive and visually consistent interfaces aligned with business goals.",
+      "Collaborated in Agile rituals including daily standups and sprint planning.",
+      "Defined project scope, analyzed user needs, and developed personas for design decisions.",
+    ],
+  },
+];
+
+const education = {
+  degree: "Bachelor of Industrial Design",
+  field: "Industrial Design",
+  university: "Islamic Azad University, Central Tehran Branch",
+};
+
+const courses = [
+  { title: "Product Design", organization: "Prodemy Academy", year: "2026" },
+  { title: "UX Design", organization: "Hanyang University", year: "2026" },
+  { title: "Product Management", organization: "Mohaymen Bootcamp", year: "2025" },
+  { title: "Product Design", organization: "Makeen Academy", year: "2023" },
+];
+
+const skillGroups = [
+  {
+    title: "Design",
+    items: [
+      "UX research",
+      "Product design",
+      "Design systems",
+      "Wireframing",
+      "Prototyping",
+      "Responsive design",
+      "Design thinking",
+      "Information architecture",
+    ],
+  },
+  {
+    title: "Tools",
+    items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "HTML/CSS"],
   },
 ];
 
@@ -423,58 +437,6 @@ const processSteps = [
   },
 ];
 
-const experience = [
-  {
-    company: "Abriment",
-    role: "Product Designer",
-    period: "June 2025 - Present",
-    points: [
-      "Redesigned cloud service creation flows to simplify setup and reduce unnecessary steps.",
-      "Designed a Shadcn-inspired design system with documentation for consistent UI components.",
-      "Created self-service cloud deployment, marketplace, and installation experiences.",
-    ],
-  },
-  {
-    company: "Makeen Ideal Media",
-    role: "UX/UI Designer",
-    period: "Feb 2024 - June 2025",
-    points: [
-      "Designed responsive interfaces aligned with business goals.",
-      "Worked in Agile rituals including daily standups and sprint planning.",
-      "Defined scope, analyzed user needs, and developed personas for design decisions.",
-    ],
-  },
-];
-
-const skillGroups = [
-  {
-    title: "Design",
-    items: [
-      "UX research",
-      "Product design",
-      "Design systems",
-      "Wireframing",
-      "Prototyping",
-      "Responsive design",
-      "Design thinking",
-      "Information architecture",
-    ],
-  },
-  {
-    title: "Tools",
-    items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "HTML/CSS"],
-  },
-  {
-    title: "Education + courses",
-    items: [
-      "Bachelor of Industrial Design",
-      "Product Design",
-      "UX Design",
-      "Product Management",
-    ],
-  },
-];
-
 const heroFieldDots = [
   { x: "8%", y: "24%", size: "4px", delay: "-0.6s", duration: "7.2s", dx: "12px", dy: "-14px", tone: "cyan" },
   { x: "15%", y: "68%", size: "3px", delay: "-2.1s", duration: "8.6s", dx: "-10px", dy: "12px", tone: "soft" },
@@ -488,32 +450,25 @@ const heroFieldDots = [
   { x: "83%", y: "55%", size: "3px", delay: "-4.1s", duration: "8.8s", dx: "15px", dy: "-12px", tone: "coral" },
   { x: "91%", y: "29%", size: "4px", delay: "-3.2s", duration: "9.3s", dx: "-14px", dy: "16px", tone: "lime" },
   { x: "94%", y: "82%", size: "3px", delay: "-6.4s", duration: "8s", dx: "-16px", dy: "-10px", tone: "soft" },
-  { x: "6%", y: "48%", size: "3px", delay: "-5.7s", duration: "9s", dx: "10px", dy: "15px", tone: "soft" },
-  { x: "38%", y: "44%", size: "4px", delay: "-2.4s", duration: "7.6s", dx: "-15px", dy: "-9px", tone: "cyan" },
-  { x: "61%", y: "12%", size: "3px", delay: "-6.1s", duration: "8.9s", dx: "9px", dy: "17px", tone: "soft" },
-  { x: "78%", y: "70%", size: "4px", delay: "-0.3s", duration: "8.1s", dx: "-11px", dy: "-15px", tone: "cyan" },
-  { x: "88%", y: "43%", size: "5px", delay: "-4.6s", duration: "9.4s", dx: "12px", dy: "12px", tone: "soft" },
-  { x: "52%", y: "88%", size: "3px", delay: "-1.9s", duration: "8.7s", dx: "-13px", dy: "-14px", tone: "lime" },
 ];
 
-const allProjects = [...caseStudies, ...supportingProjects, ...conceptProjects];
+const allOverlayItems = [
+  ...projectCaseStudies,
+  ...uxConceptCaseStudies,
+  ...productProjects,
+  ...uiConceptProjects,
+];
 
 function App() {
   return <CurrentPortfolio />;
 }
 
 function CurrentPortfolio() {
-  const [activeCaseId, setActiveCaseId] = useState(caseStudies[0].id);
-  const [openProjectId, setOpenProjectId] = useState(null);
+  const [openItemId, setOpenItemId] = useState(null);
 
-  const activeCase = useMemo(
-    () => caseStudies.find((item) => item.id === activeCaseId) ?? caseStudies[0],
-    [activeCaseId]
-  );
-
-  const openProject = useMemo(
-    () => allProjects.find((item) => item.id === openProjectId) ?? null,
-    [openProjectId]
+  const openItem = useMemo(
+    () => allOverlayItems.find((item) => item.id === openItemId) ?? null,
+    [openItemId]
   );
 
   useEffect(() => {
@@ -583,23 +538,45 @@ function CurrentPortfolio() {
       <Header />
       <main>
         <Hero />
-        <FeaturedRail onOpenProject={setOpenProjectId} />
-        <WorkSection
-          activeCase={activeCase}
-          activeCaseId={activeCaseId}
-          onOpenProject={setOpenProjectId}
-          onSelect={setActiveCaseId}
+        <ExperienceSection />
+        <EducationCoursesSection />
+        <CaseStudySection
+          id="case-studies"
+          label="Project Case Studies"
+          title="Full product case studies."
+          description="Complete case studies open in a right-side overlay without navigating away from the portfolio."
+          items={projectCaseStudies}
+          onOpen={setOpenItemId}
         />
-        <ConceptLab onOpenProject={setOpenProjectId} />
+        <CaseStudySection
+          id="ux-concepts"
+          label="UX Concept Case Studies"
+          title="Research-led concept studies."
+          description="Conceptual UX work is separated from shipped product projects and opens in the same overlay system."
+          items={uxConceptCaseStudies}
+          onOpen={setOpenItemId}
+        />
+        <ProjectGridSection
+          id="projects"
+          label="Projects"
+          title="Product projects."
+          description="Project screens are shown inside device mockups, separate from the case-study PDFs."
+          items={productProjects}
+          onOpen={setOpenItemId}
+        />
+        <ProjectGridSection
+          id="ui-concepts"
+          label="UI Concept Projects"
+          title="Interface explorations."
+          description="UI concept work is grouped separately from project case studies and product projects."
+          items={uiConceptProjects}
+          onOpen={setOpenItemId}
+        />
         <ProcessSection />
-        <ArchiveSection onOpenProject={setOpenProjectId} />
         <AboutSection />
         <ContactSection />
       </main>
-      <ProjectDetailModal
-        project={openProject}
-        onClose={() => setOpenProjectId(null)}
-      />
+      <DetailOverlay item={openItem} onClose={() => setOpenItemId(null)} />
     </>
   );
 }
@@ -611,10 +588,10 @@ function Header() {
         <span>DM</span>
       </a>
       <nav className="nav-links" aria-label="Main">
-        <a href="#work">Work</a>
-        <a href="#concepts">Concepts</a>
-        <a href="#process">Process</a>
-        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
       <a className="header-action" href="mailto:dnyamehrzd@gmail.com">
@@ -643,7 +620,7 @@ function Hero() {
             research, systems thinking, and teamwork.
           </p>
           <div className="hero-actions" aria-label="Hero actions">
-            <a className="button primary" href="#work">
+            <a className="button primary" href="#case-studies">
               <span>View case studies</span>
               <ArrowRight size={18} aria-hidden="true" />
             </a>
@@ -720,38 +697,14 @@ function WomanLineFigure({ compact = false }) {
           style={{ stroke: `url(#${traceId})` }}
           d="M280 76 C222 81 181 116 165 164 C156 191 160 215 149 235 C140 246 128 252 117 258 C133 266 147 276 154 295 C166 313 188 325 214 321 C226 361 219 421 198 494"
         />
-        <path
-          className="woman-line shoulder delay-one"
-          d="M198 494 C252 461 317 458 372 481"
-        />
-        <path
-          className="woman-line hair delay-one"
-          d="M284 76 C225 87 190 126 179 184 C168 242 139 292 105 333 C88 353 82 380 91 408"
-        />
-        <path
-          className="woman-line hair delay-two"
-          d="M323 101 C271 119 239 163 227 224 C215 286 181 345 139 392"
-        />
-        <path
-          className="woman-line hair delay-three"
-          d="M348 137 C316 169 297 210 293 265 C287 333 258 391 215 433"
-        />
-        <path
-          className="woman-line profile"
-          d="M213 128 C190 139 177 164 178 190 C179 209 170 224 154 235 C166 239 178 245 184 255 C177 263 181 272 193 278 C207 286 225 280 239 267"
-        />
-        <path
-          className="woman-line face-detail delay-one"
-          d="M198 201 C205 197 213 198 219 204"
-        />
-        <path
-          className="woman-line face-detail delay-two"
-          d="M190 263 C202 268 216 267 229 259"
-        />
-        <path
-          className="woman-line neck"
-          d="M222 315 C231 366 220 431 198 494"
-        />
+        <path className="woman-line shoulder delay-one" d="M198 494 C252 461 317 458 372 481" />
+        <path className="woman-line hair delay-one" d="M284 76 C225 87 190 126 179 184 C168 242 139 292 105 333 C88 353 82 380 91 408" />
+        <path className="woman-line hair delay-two" d="M323 101 C271 119 239 163 227 224 C215 286 181 345 139 392" />
+        <path className="woman-line hair delay-three" d="M348 137 C316 169 297 210 293 265 C287 333 258 391 215 433" />
+        <path className="woman-line profile" d="M213 128 C190 139 177 164 178 190 C179 209 170 224 154 235 C166 239 178 245 184 255 C177 263 181 272 193 278 C207 286 225 280 239 267" />
+        <path className="woman-line face-detail delay-one" d="M198 201 C205 197 213 198 219 204" />
+        <path className="woman-line face-detail delay-two" d="M190 263 C202 268 216 267 229 259" />
+        <path className="woman-line neck" d="M222 315 C231 366 220 431 198 494" />
         <path className="woman-line circuit" d="M309 98 H372 V151 H408" />
         <path className="woman-line circuit delay-two" d="M330 218 H392 V270 H426" />
         <path className="woman-line circuit delay-one" d="M254 390 V438 H320" />
@@ -789,192 +742,130 @@ function WomanLineFigure({ compact = false }) {
   );
 }
 
-function FeaturedRail({ onOpenProject }) {
+function ExperienceSection() {
   return (
-    <section className="featured-rail" aria-label="Featured case studies preview">
-      <div className="rail-track">
-        {caseStudies.map((item, index) => (
-          <button
-            className={`rail-item ${item.accent}`}
-            type="button"
-            onClick={() => onOpenProject(item.id)}
-            key={item.id}
-          >
-            <span className="rail-index">0{index + 1}</span>
-            <span className="rail-title">{item.title}</span>
-            <ArrowRight size={17} aria-hidden="true" />
-          </button>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function WorkSection({ activeCase, activeCaseId, onOpenProject, onSelect }) {
-  return (
-    <section id="work" className="work-section section-shell" aria-labelledby="work-title">
+    <section id="experience" className="experience-section section-shell" aria-labelledby="experience-title">
       <div className="section-heading reveal">
-        <p className="section-label">Selected work</p>
-        <h2 id="work-title">Real product work, shown with the actual screens.</h2>
-        <p>
-          Cloud infrastructure, deployment, technical dashboards, and reading
-          workflows, with deeper project detail available from each case.
-        </p>
+        <p className="section-label">Work Experience</p>
+        <h2 id="experience-title">Product design across cloud and responsive digital products.</h2>
       </div>
-
-      <div className="work-layout">
-        <div className="case-index" aria-label="Case study index">
-          {caseStudies.map((item) => (
-            <button
-              className={`case-row ${activeCaseId === item.id ? "active" : ""}`}
-              type="button"
-              key={item.id}
-              onClick={() => onSelect(item.id)}
-            >
-              <span>
-                <strong>{item.title}</strong>
-                <small>{item.type}</small>
-              </span>
-              <ArrowRight size={18} aria-hidden="true" />
-            </button>
-          ))}
-        </div>
-
-        <article className={`case-detail reveal ${activeCase.accent}`}>
-          <ProjectMediaFrame project={activeCase} />
-          <div className="case-content">
-            <div className="meta-line">
-              <span>{activeCase.role}</span>
-              <span>{activeCase.type}</span>
+      <div className="experience-grid">
+        {experience.map((item) => (
+          <article className="experience-item reveal" key={item.company}>
+            <div>
+              <span>{item.period}</span>
+              <h3>{item.company}</h3>
+              <p>{item.role}</p>
             </div>
-            <h3>{activeCase.title}</h3>
-            <p>{activeCase.intro}</p>
-            <TagList items={activeCase.tags} />
-            <div className="detail-grid">
-              <DetailList title="Problem" items={[activeCase.problem]} />
-              <DetailList title="Design decisions" items={activeCase.moves} />
-              <DetailList title="Outcome signals" items={activeCase.impact} />
-            </div>
-            <button
-              className="button detail-button"
-              type="button"
-              onClick={() => onOpenProject(activeCase.id)}
-            >
-              <Expand size={17} aria-hidden="true" />
-              <span>Open project detail</span>
-            </button>
-          </div>
-        </article>
-      </div>
-    </section>
-  );
-}
-
-function ProjectMediaFrame({ project }) {
-  const [activeMediaIndex, setActiveMediaIndex] = useState(0);
-  const frameClass = project.previewFrame === "portrait" ? "portrait-media" : "landscape-media";
-  const currentMedia = project.media[activeMediaIndex] ?? project.media[0];
-  const hasMultipleMedia = project.media.length > 1;
-
-  useEffect(() => {
-    setActiveMediaIndex(0);
-  }, [project.id]);
-
-  return (
-    <div className={`case-visual ${frameClass} ${project.imageTone === "light" ? "light-media" : ""}`}>
-      <div
-        className="case-image-scroll"
-        tabIndex={0}
-        aria-label={`${project.title} preview scroll area`}
-        key={currentMedia.src}
-      >
-        <img src={currentMedia.src} alt={currentMedia.alt} />
-      </div>
-      {hasMultipleMedia && (
-        <div className="media-thumbs" aria-label={`${project.title} screen selector`}>
-          {project.media.map((item, index) => (
-            <button
-              className={activeMediaIndex === index ? "active" : ""}
-              type="button"
-              aria-label={`Show ${item.caption}`}
-              aria-pressed={activeMediaIndex === index}
-              onClick={() => setActiveMediaIndex(index)}
-              key={item.src}
-            >
-              <img src={item.src} alt="" aria-hidden="true" />
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function ConceptLab({ onOpenProject }) {
-  return (
-    <section id="concepts" className="concept-section section-shell" aria-labelledby="concept-title">
-      <div className="section-heading reveal">
-        <p className="section-label">Concept Lab</p>
-        <h2 id="concept-title">Mobile explorations with a separate concept lane.</h2>
-        <p>
-          Smaller studies that test visual direction, interaction hierarchy, and
-          mobile composition without presenting them as shipped case studies.
-        </p>
-      </div>
-
-      <div className="concept-grid">
-        {conceptProjects.map((project) => (
-          <button
-            className={`concept-card reveal ${project.accent}`}
-            type="button"
-            onClick={() => onOpenProject(project.id)}
-            key={project.id}
-          >
-            <div className="concept-phone-stack">
-              {project.media.slice(0, 3).map((item, index) => (
-                <img
-                  src={item.src}
-                  alt={index === 0 ? item.alt : ""}
-                  aria-hidden={index !== 0}
-                  key={item.src}
-                />
+            <ul>
+              {item.points.map((point) => (
+                <li key={point}>{point}</li>
               ))}
-            </div>
-            <div className="concept-copy">
-              <span>{project.type}</span>
-              <h3>{project.title}</h3>
-              <p>{project.intro}</p>
-              <TagList items={project.tags} />
-            </div>
-          </button>
+            </ul>
+          </article>
         ))}
       </div>
     </section>
   );
 }
 
-function ArchiveSection({ onOpenProject }) {
+function EducationCoursesSection() {
   return (
-    <section className="archive-section section-shell" aria-labelledby="archive-title">
+    <section id="education" className="education-section section-shell" aria-labelledby="education-title">
       <div className="section-heading reveal">
-        <p className="section-label">More studies</p>
-        <h2 id="archive-title">Decision support across product types.</h2>
+        <p className="section-label">Education & Courses</p>
+        <h2 id="education-title">Formal education and completed product courses.</h2>
       </div>
-      <div className="archive-grid">
-        {supportingProjects.map((item) => (
-          <button
-            className={`archive-card reveal ${item.accent}`}
-            type="button"
-            onClick={() => onOpenProject(item.id)}
-            key={item.id}
-          >
-            <div className="archive-image">
-              <img src={item.media[0].src} alt={`${item.title} case study preview`} />
+
+      <div className="education-layout">
+        <article className="education-card reveal">
+          <p className="section-label">Education</p>
+          <dl>
+            <div>
+              <dt>Degree</dt>
+              <dd>{education.degree}</dd>
             </div>
             <div>
+              <dt>Field of Study</dt>
+              <dd>{education.field}</dd>
+            </div>
+            <div>
+              <dt>University Name</dt>
+              <dd>{education.university}</dd>
+            </div>
+          </dl>
+        </article>
+
+        <div className="course-list reveal" aria-label="Completed courses">
+          {courses.map((course) => (
+            <article className="course-card" key={`${course.title}-${course.organization}`}>
+              <span>{course.year}</span>
+              <h3>{course.title}</h3>
+              <p>{course.organization}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CaseStudySection({ id, label, title, description, items, onOpen }) {
+  return (
+    <section id={id} className="case-card-section section-shell" aria-labelledby={`${id}-title`}>
+      <div className="section-heading reveal">
+        <p className="section-label">{label}</p>
+        <h2 id={`${id}-title`}>{title}</h2>
+        <p>{description}</p>
+      </div>
+
+      <div className="case-card-grid">
+        {items.map((item) => (
+          <button
+            className={`case-study-card reveal ${item.accent}`}
+            type="button"
+            onClick={() => onOpen(item.id)}
+            key={item.id}
+          >
+            <div className="case-study-cover">
+              <img src={item.coverImage} alt={`${item.title} cover`} />
+            </div>
+            <div className="case-study-body">
               <span>{item.type}</span>
               <h3>{item.title}</h3>
               <p>{item.intro}</p>
+              <ArrowRight size={18} aria-hidden="true" />
+            </div>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProjectGridSection({ id, label, title, description, items, onOpen }) {
+  return (
+    <section id={id} className="project-grid-section section-shell" aria-labelledby={`${id}-title`}>
+      <div className="section-heading reveal">
+        <p className="section-label">{label}</p>
+        <h2 id={`${id}-title`}>{title}</h2>
+        <p>{description}</p>
+      </div>
+
+      <div className="project-card-grid">
+        {items.map((item) => (
+          <button
+            className={`project-card reveal ${item.accent}`}
+            type="button"
+            onClick={() => onOpen(item.id)}
+            key={item.id}
+          >
+            <div className="project-card-image">
+              <img src={item.coverImage} alt={`${item.title} cover`} />
+            </div>
+            <div className="project-card-title">
+              <h3>{item.title}</h3>
+              <ArrowRight size={18} aria-hidden="true" />
             </div>
           </button>
         ))}
@@ -1043,23 +934,6 @@ function AboutSection() {
         </div>
       </div>
 
-      <div className="experience-grid">
-        {experience.map((item) => (
-          <article className="experience-item reveal" key={item.company}>
-            <div>
-              <span>{item.period}</span>
-              <h3>{item.company}</h3>
-              <p>{item.role}</p>
-            </div>
-            <ul>
-              {item.points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
-
       <div className="skills-grid reveal">
         {skillGroups.map((group) => (
           <div className="skill-group" key={group.title}>
@@ -1117,15 +991,15 @@ function ContactSection() {
   );
 }
 
-function ProjectDetailModal({ project, onClose }) {
+function DetailOverlay({ item, onClose }) {
   const [mediaIndex, setMediaIndex] = useState(0);
 
   useEffect(() => {
     setMediaIndex(0);
-  }, [project?.id]);
+  }, [item?.id]);
 
   useEffect(() => {
-    if (!project) return undefined;
+    if (!item) return undefined;
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -1135,14 +1009,16 @@ function ProjectDetailModal({ project, onClose }) {
         onClose();
       }
 
-      if (event.key === "ArrowLeft") {
-        setMediaIndex((current) =>
-          current === 0 ? project.media.length - 1 : current - 1
-        );
-      }
+      if (item.detailType === "project" && item.media?.length > 1) {
+        if (event.key === "ArrowLeft") {
+          setMediaIndex((current) =>
+            current === 0 ? item.media.length - 1 : current - 1
+          );
+        }
 
-      if (event.key === "ArrowRight") {
-        setMediaIndex((current) => (current + 1) % project.media.length);
+        if (event.key === "ArrowRight") {
+          setMediaIndex((current) => (current + 1) % item.media.length);
+        }
       }
     };
 
@@ -1152,102 +1028,168 @@ function ProjectDetailModal({ project, onClose }) {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [onClose, project]);
+  }, [item, onClose]);
 
-  if (!project) return null;
+  if (!item) return null;
 
-  const currentMedia = project.media[mediaIndex];
-  const hasMultipleMedia = project.media.length > 1;
-  const isMobileConcept = project.presentation === "mobile-concept";
-
-  const showPrevious = () => {
-    setMediaIndex((current) =>
-      current === 0 ? project.media.length - 1 : current - 1
-    );
-  };
-
-  const showNext = () => {
-    setMediaIndex((current) => (current + 1) % project.media.length);
-  };
+  const isCaseStudy = item.detailType === "case-study";
 
   return (
-    <div className="modal-overlay" role="presentation" onMouseDown={onClose}>
+    <div className="modal-overlay drawer-overlay" role="presentation" onMouseDown={onClose}>
       <section
-        className={`project-modal ${project.accent} ${isMobileConcept ? "concept-modal" : ""}`}
+        className={`detail-drawer ${item.accent}`}
         role="dialog"
         aria-modal="true"
-        aria-labelledby="project-modal-title"
+        aria-labelledby="detail-drawer-title"
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <header className="modal-header">
+        <header className="modal-header drawer-header">
           <div>
-            <span>{project.type}</span>
-            <h2 id="project-modal-title">{project.title}</h2>
+            <span>{isCaseStudy ? "Case Study" : item.type}</span>
+            <h2 id="detail-drawer-title">{item.title}</h2>
           </div>
-          <button className="icon-button" type="button" onClick={onClose} aria-label="Close project detail">
+          <button className="icon-button" type="button" onClick={onClose} aria-label="Close detail overlay">
             <X size={20} aria-hidden="true" />
           </button>
         </header>
 
-        <div className="modal-body">
-          <div className="modal-media">
-            <div className="modal-image-scroll" tabIndex={0} aria-label={`${project.title} image scroll area`}>
-              <img src={currentMedia.src} alt={currentMedia.alt} />
-            </div>
-            <div className="modal-media-caption">
-              <span>{currentMedia.caption}</span>
-              <span>
-                {mediaIndex + 1} / {project.media.length}
-              </span>
-            </div>
-            {hasMultipleMedia && (
-              <div className="modal-media-controls">
-                <button className="icon-button" type="button" onClick={showPrevious} aria-label="Previous screen">
-                  <ChevronLeft size={20} aria-hidden="true" />
-                </button>
-                <button className="icon-button" type="button" onClick={showNext} aria-label="Next screen">
-                  <ChevronRight size={20} aria-hidden="true" />
-                </button>
-              </div>
-            )}
-          </div>
-
-          <aside className="modal-content">
-            <div className="meta-line">
-              <span>{project.role}</span>
-              <span>{project.type}</span>
-            </div>
-            <p>{project.intro}</p>
-            <TagList items={project.tags} />
-            <DetailList title="Problem" items={[project.problem]} />
-            <DetailList title="Design decisions" items={project.moves} />
-            <DetailList title="Outcome signals" items={project.impact} />
-          </aside>
-        </div>
-
-        {hasMultipleMedia && (
-          <div className="modal-thumbnails" aria-label={`${project.title} gallery`}>
-            {project.media.map((item, index) => (
-              <button
-                className={mediaIndex === index ? "active" : ""}
-                type="button"
-                onClick={() => setMediaIndex(index)}
-                key={item.src}
-              >
-                <img src={item.src} alt="" aria-hidden="true" />
-                <span>{item.caption}</span>
-              </button>
-            ))}
-          </div>
+        {isCaseStudy ? (
+          <CaseStudyDrawerContent item={item} />
+        ) : (
+          <ProjectDrawerContent
+            item={item}
+            mediaIndex={mediaIndex}
+            setMediaIndex={setMediaIndex}
+          />
         )}
       </section>
     </div>
   );
 }
 
+function CaseStudyDrawerContent({ item }) {
+  return (
+    <div className="drawer-scroll">
+      <div className="drawer-summary">
+        <div className="meta-line">
+          <span>{item.role}</span>
+          <span>{item.type}</span>
+        </div>
+        <p>{item.intro}</p>
+        <TagList items={item.tags} />
+        <DetailList title="Problem" items={[item.problem]} />
+        <DetailList title="Design decisions" items={item.moves} />
+        <DetailList title="Outcome signals" items={item.impact} />
+      </div>
+
+      <div className="case-document">
+        <iframe src={item.pdfPath} title={`${item.title} complete case study`} />
+      </div>
+    </div>
+  );
+}
+
+function ProjectDrawerContent({ item, mediaIndex, setMediaIndex }) {
+  const currentMedia = item.media[mediaIndex] ?? item.media[0];
+  const hasMultipleMedia = item.media.length > 1;
+
+  const showPrevious = () => {
+    setMediaIndex((current) =>
+      current === 0 ? item.media.length - 1 : current - 1
+    );
+  };
+
+  const showNext = () => {
+    setMediaIndex((current) => (current + 1) % item.media.length);
+  };
+
+  return (
+    <div className="drawer-scroll project-drawer-scroll">
+      <div className="drawer-summary">
+        <div className="meta-line">
+          <span>{item.role}</span>
+          <span>{item.type}</span>
+        </div>
+        <p>{item.intro}</p>
+        <TagList items={item.tags} />
+      </div>
+
+      <div className="device-gallery">
+        <DeviceFrame media={currentMedia} title={item.title} />
+        <div className="modal-media-caption">
+          <span>{currentMedia.caption}</span>
+          <span>
+            {mediaIndex + 1} / {item.media.length}
+          </span>
+        </div>
+        {hasMultipleMedia && (
+          <div className="modal-media-controls">
+            <button className="icon-button" type="button" onClick={showPrevious} aria-label="Previous screen">
+              <ChevronLeft size={20} aria-hidden="true" />
+            </button>
+            <button className="icon-button" type="button" onClick={showNext} aria-label="Next screen">
+              <ChevronRight size={20} aria-hidden="true" />
+            </button>
+          </div>
+        )}
+      </div>
+
+      {hasMultipleMedia && (
+        <div className="modal-thumbnails compact-thumbnails" aria-label={`${item.title} gallery`}>
+          {item.media.map((media, index) => (
+            <button
+              className={mediaIndex === index ? "active" : ""}
+              type="button"
+              onClick={() => setMediaIndex(index)}
+              key={media.src}
+            >
+              <img src={media.src} alt="" aria-hidden="true" />
+              <span>{media.caption}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DeviceFrame({ media, title }) {
+  if (media.mockupImage) {
+    return (
+      <div className={`device-stage ${media.device}`}>
+        <img className="device-mockup-image" src={media.src} alt={media.alt} />
+      </div>
+    );
+  }
+
+  if (media.device === "mobile") {
+    return (
+      <div className="device-stage mobile">
+        <div className="phone-device" aria-label={`${title} mobile mockup`}>
+          <div className="phone-notch" />
+          <div className="phone-screen">
+            <img src={media.src} alt={media.alt} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="device-stage desktop">
+      <div className="laptop-device" aria-label={`${title} desktop mockup`}>
+        <div className="laptop-screen">
+          <img src={media.src} alt={media.alt} />
+        </div>
+        <div className="laptop-base" />
+      </div>
+    </div>
+  );
+}
+
 function TagList({ items }) {
   return (
-    <div className="tag-list" aria-label="Project tags">
+    <div className="tag-list" aria-label="Tags">
       {items.map((item) => (
         <span key={item}>{item}</span>
       ))}
